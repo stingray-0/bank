@@ -9,6 +9,6 @@ public:
     float m_hour;
     time_t m_time;
 
-    deposit(int m);
-    deposit(int m, time_t time, float hour);
+    deposit(long long m);
+    deposit(long long m, time_t time, float hour);
 };

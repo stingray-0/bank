@@ -2,9 +2,9 @@
 #include <iostream>
 #include <fstream>
 
-const std::filesystem::path file_manager::backup_data = "backup_bank_data.txt";
-const std::filesystem::path file_manager::temp_data = "temp_bank_data.txt";
-const std::filesystem::path file_manager::data = "bank_data.txt";
+const std::filesystem::path file_manager::backup_data = "datas/backup_bank_data.txt";
+const std::filesystem::path file_manager::temp_data = "datas/temp_bank_data.txt";
+const std::filesystem::path file_manager::data = "datas/bank_data.txt";
 
 void file_manager::check_temp_data()
 {

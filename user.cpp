@@ -11,11 +11,12 @@ void user::cal_interest()
         int periods = difftime(time(nullptr), depo.m_time) / 60 / 20;
         
         if (periods == 0) continue;
-        if (depo.m_hour == 14) interest_rate = 1.2;
-        else if (depo.m_hour == 15) interest_rate = 1.5;
+        if (depo.m_hour <= 13.5) interest_rate = 1.2;
+        else if (depo.m_hour <= 14) interest_rate = 1.5;
         else interest_rate = 1.7;
         
         while (periods--) depo.m_amount *= interest_rate;
+        depo.m_hour = localtime(&depo.m_time)->tm_hour + localtime(&depo.m_time)->tm_min / 60.0;
         depo.m_time = time(nullptr);
     }
     return;  
