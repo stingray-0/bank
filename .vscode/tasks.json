@@ -7,12 +7,12 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
+                "-Iinclude",
+                "src/*.cpp",
                 "main.cpp",
-                "deposit.cpp",
-                "file_manager.cpp",
-                "user.cpp",
                 "-o",
-                "${fileDirname}\\bank_app.exe"
+                "bin/bank_app.exe"
+                // "-mconsole"
             ],
             "options": {
                 "cwd": "${fileDirname}"
