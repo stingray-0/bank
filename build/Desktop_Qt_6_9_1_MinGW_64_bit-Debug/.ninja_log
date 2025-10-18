@@ -1,0 +1,11 @@
+# ninja log v6
+16	278	7818531984376453	Qtbank_autogen/timestamp	2ea4e53ea17a34b5
+16	278	7818531984376453	Qtbank_autogen/mocs_compilation.cpp	2ea4e53ea17a34b5
+16	278	7818531984376453	C:/Users/RayLu/Documents/Qtbank/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Qtbank_autogen/timestamp	2ea4e53ea17a34b5
+765	856	7771098017904821	CMakeFiles/Qtbank.dir/deposit.cpp.obj	85d0d4b7d1f82a29
+16	278	7818531984376453	C:/Users/RayLu/Documents/Qtbank/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Qtbank_autogen/mocs_compilation.cpp	2ea4e53ea17a34b5
+631	2949	7790252257796180	CMakeFiles/Qtbank.dir/main.cpp.obj	b1580c0fedc56041
+628	2959	7790252257776168	CMakeFiles/Qtbank.dir/Qtbank_autogen/mocs_compilation.cpp.obj	9371bdbe122b1ac9
+279	4461	7818531987002343	CMakeFiles/Qtbank.dir/mainwindow.cpp.obj	dbe3fa7cb3a96c36
+4461	5441	7818532028826243	Qtbank.exe	b4041bbf0e4f9342
+964	2438	7772313914257821	CMakeFiles/Qtbank.dir/user.cpp.obj	1950206cd302164c
