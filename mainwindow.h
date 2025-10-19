@@ -59,6 +59,8 @@ private slots:
 
     void on_enter_new_rate_clicked();
 
+    void on_reset_button_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -69,5 +71,6 @@ private:
     void update_depo_list();
     void show_account_info();
     bool check_time(QLineEdit* box);
+    void update_rate_list();
 };
 #endif // MAINWINDOW_H

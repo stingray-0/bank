@@ -1,18 +1,19 @@
 #ifndef DEPOSIT_H
 #define DEPOSIT_H
 
-#include <time.h>
-
-class deposit
+#include "interest_period.h"
+#include <vector>
+class Deposit
 {
 public:
 
     long long m_amount;
-    float m_hour;
-    time_t m_time;
+    int m_mins;
+    int m_last_updated_mins;
 
-    deposit(long long m);
-    deposit(long long m, time_t time, float hour);
+    Deposit(long long m);
+    Deposit(long long m, int mins);
+    void calInterest(std::vector<InterestPeriod>& periods);
 };
 
 #endif // DEPOSIT_H

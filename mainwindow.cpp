@@ -54,6 +54,7 @@ void MainWindow::on_admin_button_clicked()
     ui->rate_box->hide();
     ui->end_time_box->hide();
     ui->enter_new_rate->hide();
+    update_rate_list();
 }
 
 void MainWindow::on_search_button_clicked()
@@ -61,7 +62,7 @@ void MainWindow::on_search_button_clicked()
     QString acc = ui->search_box->text();
     ui->account_not_found->hide();
     ui->account_list->clear();
-    for (const auto& [name, user_data] : data)
+    for (const auto& [name, user_data] : bank.user_list)
     {
         if(name.contains(acc, Qt::CaseInsensitive))
         {
@@ -93,7 +94,7 @@ void MainWindow::on_x_button_clicked()
 void MainWindow::on_add_account_clicked()
 {
     QString acc = ui->search_box->text();
-    if(!data.try_emplace(acc, acc).second)
+    if(bank.add_user(acc))
     {
         return;
     }
@@ -113,7 +114,7 @@ void MainWindow::on_not_add_account_clicked()
 void MainWindow::on_new_account_button_clicked()
 {
     QString acc = ui->search_box->text();
-    if (data.find(acc) == data.end())
+    if (bank.user_list.find(acc) == bank.user_list.end())
     {
         ui->new_account_screen->show();
     }
@@ -169,7 +170,7 @@ void MainWindow::on_enter_amount_clicked()
     }
     if (user_action == "Withdraw")
     {
-        if (data[cur_account].withdraw(amount))
+        if (bank.user_list[cur_account].withdraw(amount))
         {
             ui->amount_box->setPlaceholderText("Withdraw Completed");
         }
@@ -180,7 +181,7 @@ void MainWindow::on_enter_amount_clicked()
     }
     else if (user_action == "Deposit")
     {
-        data[cur_account].new_deposit(amount);
+        bank.user_list[cur_account].newDeposit(amount);
         ui->amount_box->setPlaceholderText("Deposit Completed");
     }
     update_depo_list();
@@ -191,10 +192,12 @@ void MainWindow::update_depo_list()
     ui->no_deposit->hide();
     ui->depo_list->clear();
     long long total = 0;
-    for (const auto& depo : data[cur_account].account)
+    for (auto& depo : bank.user_list[cur_account].m_account)
     {
+        depo.calInterest(bank.interest_periods);
         total += depo.m_amount;
-        QString depo_info = QString::number(depo.m_amount) + "$     Time: " + QString::number(depo.m_hour);
+        QString depo_info = QString::number(depo.m_amount) + "$     Time: " +
+                            QString("%1:%2").arg(depo.m_mins/60, 2, 10, QLatin1Char('0')).arg(depo.m_mins%60, 2, 10, QLatin1Char('0'));
         ui->depo_list->addItem(depo_info);
     }
     if (ui->depo_list->item(0) == nullptr)
@@ -205,12 +208,14 @@ void MainWindow::update_depo_list()
 
 }
 
+
+
+// admin page
+
 void MainWindow::on_return_button_2_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->home_page);
 }
-
-
 
 void MainWindow::on_new_button_clicked()
 {
@@ -246,12 +251,34 @@ bool MainWindow::check_time(QLineEdit* box)
 
 }
 
+void MainWindow::update_rate_list()
+{
+    ui->rate_list->clear();
+    for (const auto& period : bank.interest_periods)
+    {
+        QString special = (period.rate>250)? "damn" : (period.rate<100)? "bro???" : "";
+
+        int start_h = period.start_mins / 60;
+        int start_m = period.start_mins % 60;
+        int end_h = period.end_mins / 60;
+        int end_m = period.end_mins % 60;
+        QString start_time = QString("%1:%2").arg(start_h, 2, 10, QLatin1Char('0')).arg(start_m, 2, 10, QLatin1Char('0'));
+        QString end_time = QString("%1:%2").arg(end_h, 2, 10, QLatin1Char('0')).arg(end_m, 2, 10, QLatin1Char('0'));
+        QString rate = QString::number(period.rate, 'f', 2) + '%';
+
+        ui->rate_list->addItem(start_time + " - " + end_time + " " + rate + " " + special);
+
+    }
+    ui->rate_list->sortItems();
+}
 
 void MainWindow::on_enter_new_rate_clicked()
 {
     bool good = true;
     bool* ok_rate = new bool;
-    int rate = ui->rate_box->text().toInt(ok_rate);
+    int rate = ui->rate_box->text().toDouble(ok_rate);
+    QString start_time = ui->start_time_box->text();
+    QString end_time = ui->end_time_box->text();
 
     if(!*ok_rate || 0>rate )
     {
@@ -268,11 +295,16 @@ void MainWindow::on_enter_new_rate_clicked()
         ui->end_time_box->setText("");
         good = false;
     }
-    if (good)
+    if (good && bank.add_interest_period(start_time, end_time, rate))
     {
-        QString special = (rate>250)? "damn" : (rate<100)? "bro???" : "";
-        ui->rate_list->addItem(ui->start_time_box->text() + " - " + ui->end_time_box->text()
-                               + " : " + ui->rate_box->text() + "%  " + special);
+        update_rate_list();
     }
+}
+
+
+void MainWindow::on_reset_button_clicked()
+{
+    bank.interest_periods.clear();
+    update_rate_list();
 }
 

@@ -2,27 +2,26 @@
 #define USER_H
 
 #include <vector>
-// #include <string>
-#include "deposit.h"
 #include <QDebug>
-
+#include "deposit.h"
+// #include "interest_period.h"
 
 class User
 {
 private:
 
     QString m_username;
-    void cal_interest();
 
 public:
 
-    std::vector<deposit> account;
+    std::vector<Deposit> m_account;
 
     User(){}
     User(QString new_user);
 
-    void new_deposit(int amount);
+    // void calInterest(std::vector<InterestPeriod>& periods);
+    void newDeposit(int amount);
     bool withdraw(int amount);
-    void check();
+    // void check();
 };
 #endif // USER_H

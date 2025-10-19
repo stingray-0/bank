@@ -1,11 +1,12 @@
 #ifndef BANK_H
 #define BANK_H
 
-#include <QTime>
 #include <QString>
-#include "user.h"
 #include <unordered_map>
 #include <vector>
+#include "interest_period.h"
+#include "user.h"
+
 
 
 class Bank
@@ -14,14 +15,11 @@ private:
 
 public:
     Bank();
-    struct InterestPeriod
-    {
-        double rate;
-        QTime start_time;
-        QTime end_time;
-    };
     std::unordered_map<QString, User> user_list;
-    std::vector<InterestPeriod> intesrest_periods;
+    std::vector<InterestPeriod> interest_periods;
+
+    bool add_user(QString acc_name);
+    bool add_interest_period(QString start_str, QString end_str, double rate_str);
 };
 
 #endif // BANK_H
