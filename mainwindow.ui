@@ -33,7 +33,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="home_page">
      <widget class="QPushButton" name="admin_button">
@@ -146,7 +146,7 @@ QPushButton::Hover
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>130</y>
+        <y>120</y>
         <width>201</width>
         <height>41</height>
        </rect>
@@ -167,7 +167,7 @@ QPushButton::Hover
       <property name="geometry">
        <rect>
         <x>240</x>
-        <y>130</y>
+        <y>120</y>
         <width>121</width>
         <height>41</height>
        </rect>
@@ -195,7 +195,7 @@ QPushButton::Hover
       <property name="geometry">
        <rect>
         <x>60</x>
-        <y>30</y>
+        <y>10</y>
         <width>211</width>
         <height>81</height>
        </rect>
@@ -215,7 +215,7 @@ QPushButton::Hover
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>50</y>
+        <y>30</y>
         <width>31</width>
         <height>41</height>
        </rect>
@@ -243,7 +243,7 @@ QPushButton::Hover
       <property name="geometry">
        <rect>
         <x>460</x>
-        <y>130</y>
+        <y>120</y>
         <width>301</width>
         <height>391</height>
        </rect>
@@ -481,7 +481,7 @@ QPushButton::Hover
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>200</y>
+        <y>180</y>
         <width>381</width>
         <height>321</height>
        </rect>
@@ -595,7 +595,7 @@ QPushButton::Hover
       <property name="geometry">
        <rect>
         <x>370</x>
-        <y>130</y>
+        <y>120</y>
         <width>41</width>
         <height>41</height>
        </rect>
@@ -623,7 +623,7 @@ QPushButton::Hover
       <property name="geometry">
        <rect>
         <x>80</x>
-        <y>230</y>
+        <y>210</y>
         <width>291</width>
         <height>41</height>
        </rect>
@@ -647,7 +647,7 @@ QPushButton::Hover
       <property name="geometry">
        <rect>
         <x>60</x>
-        <y>30</y>
+        <y>10</y>
         <width>141</width>
         <height>81</height>
        </rect>
@@ -666,8 +666,8 @@ QPushButton::Hover
      <widget class="QLabel" name="Interest_rate">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>150</y>
+        <x>30</x>
+        <y>110</y>
         <width>191</width>
         <height>81</height>
        </rect>
@@ -687,8 +687,8 @@ QPushButton::Hover
      <widget class="QPushButton" name="new_button">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>170</y>
+        <x>240</x>
+        <y>130</y>
         <width>91</width>
         <height>41</height>
        </rect>
@@ -705,7 +705,7 @@ QPushButton::Hover
 
 QPushButton::Hover
 {
-	background-color:rgb(227, 124, 255)
+	background-color:rgb(227, 124, 255);
 }</string>
       </property>
       <property name="text">
@@ -715,8 +715,8 @@ QPushButton::Hover
      <widget class="QPushButton" name="reset_button">
       <property name="geometry">
        <rect>
-        <x>380</x>
-        <y>170</y>
+        <x>340</x>
+        <y>130</y>
         <width>91</width>
         <height>41</height>
        </rect>
@@ -733,7 +733,7 @@ QPushButton::Hover
 
 QPushButton::Hover
 {
-	background-color:rgb(255, 79, 79)
+	background-color:rgb(255, 79, 79);
 }</string>
       </property>
       <property name="text">
@@ -743,10 +743,10 @@ QPushButton::Hover
      <widget class="QListWidget" name="rate_list">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>300</y>
+        <x>30</x>
+        <y>240</y>
         <width>411</width>
-        <height>201</height>
+        <height>241</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -761,8 +761,8 @@ QPushButton::Hover
      <widget class="QLineEdit" name="start_time_box">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>240</y>
+        <x>30</x>
+        <y>200</y>
         <width>131</width>
         <height>21</height>
        </rect>
@@ -787,8 +787,8 @@ QPushButton::Hover
      <widget class="QLineEdit" name="end_time_box">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>240</y>
+        <x>180</x>
+        <y>200</y>
         <width>121</width>
         <height>21</height>
        </rect>
@@ -813,8 +813,8 @@ QPushButton::Hover
      <widget class="QLineEdit" name="rate_box">
       <property name="geometry">
        <rect>
-        <x>350</x>
-        <y>240</y>
+        <x>320</x>
+        <y>200</y>
         <width>81</width>
         <height>21</height>
        </rect>
@@ -839,8 +839,8 @@ QPushButton::Hover
      <widget class="QPushButton" name="enter_new_rate">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>240</y>
+        <x>410</x>
+        <y>200</y>
         <width>31</width>
         <height>21</height>
        </rect>
@@ -869,7 +869,7 @@ QPushButton::Hover
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>50</y>
+        <y>30</y>
         <width>31</width>
         <height>41</height>
        </rect>
@@ -893,14 +893,287 @@ QPushButton::Hover
        <string>←</string>
       </property>
      </widget>
+     <widget class="QLabel" name="tick_rate">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>140</y>
+        <width>311</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel
+{
+	color: rgb(255, 255, 255);
+	font: 24pt &quot;Sans Serif Collection&quot;;
+}
+</string>
+      </property>
+      <property name="text">
+       <string> Tick Rate:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="period_box">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>200</y>
+        <width>221</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit
+{
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(109, 109, 109);
+	color:rgb(255, 255, 255);
+	font: 20pt &quot;Sans Serif Collection&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>1~3599mins</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="update_period">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>200</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+	border: none;
+	color: rgb(255, 255, 255);
+	font: 700 16pt &quot;Noto Sans TC&quot;;
+	background-color: rgb(180, 223, 255);
+	border-radius:10px;
+	text-align: center;
+}
+
+QPushButton::Hover
+{
+	background-color: rgb(147, 209, 248);
+}</string>
+      </property>
+      <property name="text">
+       <string>update</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="total_assets">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>270</y>
+        <width>301</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel
+{
+	color: rgb(255, 255, 255);
+	font: 24pt &quot;Sans Serif Collection&quot;;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Assets: </string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="assets_box">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>320</y>
+        <width>221</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit
+{
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(109, 109, 109);
+	color:rgb(255, 255, 255);
+	font: 20pt &quot;Sans Serif Collection&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>($)</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="update_assests">
+      <property name="geometry">
+       <rect>
+        <x>710</x>
+        <y>320</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+	border: none;
+	color: rgb(255, 255, 255);
+	font: 700 16pt &quot;Noto Sans TC&quot;;
+	background-color: rgb(180, 223, 255);
+	border-radius:10px;
+	text-align: center;
+}
+
+QPushButton::Hover
+{
+	background-color: rgb(147, 209, 248);
+}</string>
+      </property>
+      <property name="text">
+       <string>update</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="full_reset_button">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>390</y>
+        <width>201</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+	border: none;
+	color:rgb(255, 255, 255);
+	background-color: rgb(255, 56, 56);
+	font: 24pt &quot;Sans Serif Collection&quot;;
+	border-radius: 10px;
+}
+
+QPushButton::Hover
+{
+	background-color: rgb(255, 114, 114);
+}</string>
+      </property>
+      <property name="text">
+       <string>Full Reset</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="full_reset_screen" native="true">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>170</y>
+        <width>541</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget
+{
+	background-color:rgb(90, 93, 138);
+}</string>
+      </property>
+      <widget class="QLabel" name="reset_warning">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>50</y>
+         <width>481</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel
+{
+	color: rgb(255, 255, 255);
+	font: 20pt &quot;Sans Serif Collection&quot;;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>THIS WILL ERASE ALL YOUR BANK DATA</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="proceed_reset_button">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>160</y>
+         <width>151</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+	border: none;
+	color:rgb(255, 255, 255);
+	background-color: rgb(255, 56, 56);
+	font: 24pt &quot;Sans Serif Collection&quot;;
+	border-radius: 10px;
+}
+
+QPushButton::Hover
+{
+	background-color: rgb(255, 114, 114);
+}</string>
+       </property>
+       <property name="text">
+        <string>Proceed</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="proceed_reset_button_2">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>160</y>
+         <width>151</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+	border: none;
+	color:rgb(255, 255, 255);
+	background-color: rgb(71, 249, 154);
+	font: 24pt &quot;Sans Serif Collection&quot;;
+	border-radius: 10px;
+}
+
+QPushButton::Hover
+{
+	background-color: rgb(114, 255, 159);
+}</string>
+       </property>
+       <property name="text">
+        <string>Do Not</string>
+       </property>
+      </widget>
+     </widget>
     </widget>
     <widget class="QWidget" name="page"/>
    </widget>
    <widget class="QLabel" name="clock">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>20</y>
+      <x>640</x>
+      <y>40</y>
       <width>121</width>
       <height>41</height>
      </rect>

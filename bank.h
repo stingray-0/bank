@@ -14,6 +14,9 @@ class Bank
 private:
 
 public:
+    int period_mins;
+    int assets;
+
     Bank();
     std::unordered_map<QString, User> user_list;
     std::vector<InterestPeriod> interest_periods;

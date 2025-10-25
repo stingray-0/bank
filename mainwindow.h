@@ -61,6 +61,17 @@ private slots:
 
     void on_reset_button_clicked();
 
+    void on_update_period_clicked();
+
+
+    void on_update_assests_clicked();
+
+    void on_full_reset_button_clicked();
+
+    void on_do_not_reset_button_clicked();
+
+    void on_proceed_reset_button_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -72,5 +83,7 @@ private:
     void show_account_info();
     bool check_time(QLineEdit* box);
     void update_rate_list();
+    void update_tick_rate();
+    void update_total_assets();
 };
 #endif // MAINWINDOW_H

@@ -8,6 +8,9 @@ Bank::Bank()
     default_period.end_mins = 1439;
     default_period.rate = 100;
     interest_periods.push_back(default_period);
+
+    period_mins = 20;
+    assets = 100000;
 }
 
 bool Bank::add_user(QString acc_name)

@@ -13,7 +13,7 @@ public:
 
     Deposit(long long m);
     Deposit(long long m, int mins);
-    void calInterest(std::vector<InterestPeriod>& periods);
+    void calInterest(std::vector<InterestPeriod>& periods, int tick_rate);
 };
 
 #endif // DEPOSIT_H

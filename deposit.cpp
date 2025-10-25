@@ -11,12 +11,12 @@ Deposit::Deposit(long long m) : m_amount(m)
 
 Deposit::Deposit(long long m, int mins): m_amount(m), m_mins(mins), m_last_updated_mins(mins){}
 
-void Deposit::calInterest(std::vector<InterestPeriod>& periods)
+void Deposit::calInterest(std::vector<InterestPeriod>& periods, int tick_rate)
 {
     time_t now = time(nullptr);
     tm* local_tm = localtime(&now);
     int cur_mins = local_tm->tm_hour*60 + local_tm->tm_min;
-    while (m_last_updated_mins+20 <= cur_mins)
+    while (m_last_updated_mins+tick_rate <= cur_mins)
     {
         for (const auto& p : periods)
         {
@@ -26,6 +26,6 @@ void Deposit::calInterest(std::vector<InterestPeriod>& periods)
                 break;
             }
         }
-        m_last_updated_mins += 20;
+        m_last_updated_mins += tick_rate;
     }
 }

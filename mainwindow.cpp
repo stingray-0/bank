@@ -54,7 +54,11 @@ void MainWindow::on_admin_button_clicked()
     ui->rate_box->hide();
     ui->end_time_box->hide();
     ui->enter_new_rate->hide();
+    ui->full_reset_screen->hide();
+
+    update_tick_rate();
     update_rate_list();
+    update_total_assets();
 }
 
 void MainWindow::on_search_button_clicked()
@@ -194,7 +198,7 @@ void MainWindow::update_depo_list()
     long long total = 0;
     for (auto& depo : bank.user_list[cur_account].m_account)
     {
-        depo.calInterest(bank.interest_periods);
+        depo.calInterest(bank.interest_periods, bank.period_mins);
         total += depo.m_amount;
         QString depo_info = QString::number(depo.m_amount) + "$     Time: " +
                             QString("%1:%2").arg(depo.m_mins/60, 2, 10, QLatin1Char('0')).arg(depo.m_mins%60, 2, 10, QLatin1Char('0'));
@@ -306,5 +310,74 @@ void MainWindow::on_reset_button_clicked()
 {
     bank.interest_periods.clear();
     update_rate_list();
+}
+
+
+void MainWindow::on_update_period_clicked()
+{
+    bool *ok_period = new bool;
+    int period = ui->period_box->text().toInt(ok_period);
+    ui->period_box->clear();
+    if (period <=0 || period > 3599)
+    {
+        *ok_period = false;
+    }
+    if (*ok_period)
+    {
+        bank.period_mins = period;
+        ui->period_box->setPlaceholderText("1~3599mins");
+        update_tick_rate();
+    }
+    else
+    {
+        ui->period_box->setPlaceholderText("1~3599MINS");
+    }
+}
+
+void MainWindow::update_tick_rate()
+{
+    ui->tick_rate->setText("Tick Rate: " + QString::number(bank.period_mins) + " mins");
+}
+
+void MainWindow::on_update_assests_clicked()
+{
+    bool *ok_assets = new bool;
+    int assets = ui->assets_box->text().toInt(ok_assets);
+    ui->assets_box->clear();
+    if (assets < 0)
+    {
+        *ok_assets = false;
+    }
+    if (*ok_assets)
+    {
+        bank.assets = assets;
+        ui->assets_box->setPlaceholderText("($)");
+        update_total_assets();
+    }
+    else
+    {
+        ui->assets_box->setPlaceholderText("Invalid ($)");
+    }
+}
+
+void MainWindow::update_total_assets()
+{
+    ui->total_assets->setText("Assets: " + QString::number(bank.assets) + "$");
+}
+
+
+void MainWindow::on_full_reset_button_clicked()
+{
+    ui->full_reset_screen->show();
+}
+
+void MainWindow::on_do_not_reset_button_clicked()
+{
+    ui->full_reset_screen->hide();
+}
+
+void MainWindow::on_proceed_reset_button_clicked()
+{
+
 }
 
