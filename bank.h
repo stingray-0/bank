@@ -15,7 +15,7 @@ private:
     void calcLiabilities();
 public:
     int period_mins;
-    int assets;
+    long long assets;
     long long liabilities;
 
     Bank();

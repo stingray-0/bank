@@ -19,6 +19,16 @@ MainWindow::MainWindow(QWidget *parent)
     timer->start(1000);
     update_clock();
     update_risk();
+    // this->setStyleSheet("background-image: url(:/nightsky.jpg);");
+    QPixmap bkgnd(":/nightsky.jpg");
+
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+
+    QPalette palette;
+    palette.setBrush(QPalette::Window, bkgnd);
+    this->setPalette(palette);
+    this->setAutoFillBackground(true);
+    this->resize(800, 600);
 }
 
 MainWindow::~MainWindow()
@@ -394,11 +404,11 @@ void MainWindow::update_risk()
 {
     int equity = bank.calcEquity();
     long long liabilities = bank.liabilities;
-    ui->insolvency_risk->setText("Equity: " + QString::number(equity) + "$");
+    ui->equity->setText("Equity: " + QString::number(equity) + "$");
     ui->liabilities->setText("Liabilities: " + QString::number(liabilities) + "$");
     if (equity <= 0)
     {
-        ui->insolvency_risk->setStyleSheet("QLabel{color: rgb(255, 75, 75);font: 600 20pt \"Cascadia Code\";}");
+        ui->equity->setStyleSheet("QLabel{color: rgb(255, 75, 75);font: 600 20pt \"Cascadia Code\";}");
         ui->liabilities->setStyleSheet("QLabel{color: rgb(255, 75, 75);font: 600 20pt \"Cascadia Code\";}");
     }
     // else if (equity > 50)
@@ -408,7 +418,7 @@ void MainWindow::update_risk()
     // }
     else
     {
-        ui->insolvency_risk->setStyleSheet("QLabel{color: rgb(255, 255, 255);font: 600 20pt \"Cascadia Code\";}");
+        ui->equity->setStyleSheet("QLabel{color: rgb(255, 255, 255);font: 600 20pt \"Cascadia Code\";}");
         ui->liabilities->setStyleSheet("QLabel{color: rgb(255, 255, 255);font: 600 20pt \"Cascadia Code\";}");
     }
 }
