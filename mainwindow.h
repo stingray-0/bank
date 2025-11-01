@@ -85,5 +85,6 @@ private:
     void update_rate_list();
     void update_tick_rate();
     void update_total_assets();
+    void update_risk();
 };
 #endif // MAINWINDOW_H

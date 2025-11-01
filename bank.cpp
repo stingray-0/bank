@@ -3,19 +3,28 @@
 
 Bank::Bank()
 {
+    init();
+}
+
+void Bank::init()
+{
+    interest_periods.clear();
+    user_list.clear();
+
+    period_mins = 20;
+    assets = 100000;
+
     InterestPeriod default_period;
     default_period.start_mins = 0;
     default_period.end_mins = 1439;
     default_period.rate = 100;
     interest_periods.push_back(default_period);
 
-    period_mins = 20;
-    assets = 100000;
 }
 
 bool Bank::add_user(QString acc_name)
 {
-    if (this->user_list.try_emplace(acc_name, acc_name).second) return true;
+    if (user_list.try_emplace(acc_name, acc_name).second) return true;
     return false;
 }
 
@@ -46,4 +55,24 @@ bool Bank::add_interest_period(QString start_str, QString end_str, double rate)
     interest_periods.push_back(new_period);
 
     return true;
+}
+
+void Bank::calcLiabilities()
+{
+    int total_liabilities = 0;
+    for(auto& [name, acc] : user_list)
+    {
+        for (auto& depo : acc.m_account)
+        {
+            total_liabilities += depo.m_amount;
+        }
+    }
+
+    liabilities = total_liabilities;
+}
+
+int Bank::calcEquity()
+{
+    calcLiabilities();
+    return assets - liabilities;
 }

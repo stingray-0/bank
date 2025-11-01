@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(timer, &QTimer::timeout, this, &MainWindow::update_clock);
     timer->start(1000);
     update_clock();
+    update_risk();
 }
 
 MainWindow::~MainWindow()
@@ -29,6 +30,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_return_button_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->home_page);
+    update_risk();
 }
 
 void MainWindow::update_clock()
@@ -98,12 +100,13 @@ void MainWindow::on_x_button_clicked()
 void MainWindow::on_add_account_clicked()
 {
     QString acc = ui->search_box->text();
-    if(bank.add_user(acc))
+    ui->search_box->clear();
+    cur_account = acc;
+    if(!bank.add_user(acc))
     {
         return;
     }
-    cur_account = acc;
-    ui->account_name->setText("New acc! " + acc);
+    ui->account_name->setText("New acc!  " + acc);
     show_account_info();
     ui->new_account_screen->hide();
 }
@@ -177,6 +180,7 @@ void MainWindow::on_enter_amount_clicked()
         if (bank.user_list[cur_account].withdraw(amount))
         {
             ui->amount_box->setPlaceholderText("Withdraw Completed");
+            bank.assets -= amount;
         }
         else
         {
@@ -187,6 +191,7 @@ void MainWindow::on_enter_amount_clicked()
     {
         bank.user_list[cur_account].newDeposit(amount);
         ui->amount_box->setPlaceholderText("Deposit Completed");
+        bank.assets += amount;
     }
     update_depo_list();
 }
@@ -218,7 +223,7 @@ void MainWindow::update_depo_list()
 
 void MainWindow::on_return_button_2_clicked()
 {
-    ui->stackedWidget->setCurrentWidget(ui->home_page);
+    on_return_button_clicked();
 }
 
 void MainWindow::on_new_button_clicked()
@@ -378,6 +383,32 @@ void MainWindow::on_do_not_reset_button_clicked()
 
 void MainWindow::on_proceed_reset_button_clicked()
 {
-
+    ui->full_reset_screen->hide();
+    bank.init();
+    update_tick_rate();
+    update_rate_list();
+    update_total_assets();
 }
 
+void MainWindow::update_risk()
+{
+    int equity = bank.calcEquity();
+    long long liabilities = bank.liabilities;
+    ui->insolvency_risk->setText("Equity: " + QString::number(equity) + "$");
+    ui->liabilities->setText("Liabilities: " + QString::number(liabilities) + "$");
+    if (equity <= 0)
+    {
+        ui->insolvency_risk->setStyleSheet("QLabel{color: rgb(255, 75, 75);font: 600 20pt \"Cascadia Code\";}");
+        ui->liabilities->setStyleSheet("QLabel{color: rgb(255, 75, 75);font: 600 20pt \"Cascadia Code\";}");
+    }
+    // else if (equity > 50)
+    // {
+    //     ui->insolvency_risk->setStyleSheet("QLabel{color: rgb(255, 255, 112);font: 600 20pt \"Cascadia Code\";}");
+    //     ui->liabilities->setStyleSheet("QLabel{color: rgb(255, 255, 112);font: 600 20pt \"Cascadia Code\";}");
+    // }
+    else
+    {
+        ui->insolvency_risk->setStyleSheet("QLabel{color: rgb(255, 255, 255);font: 600 20pt \"Cascadia Code\";}");
+        ui->liabilities->setStyleSheet("QLabel{color: rgb(255, 255, 255);font: 600 20pt \"Cascadia Code\";}");
+    }
+}

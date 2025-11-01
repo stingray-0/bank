@@ -33,7 +33,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="home_page">
      <widget class="QPushButton" name="admin_button">
@@ -62,34 +62,6 @@ QPushButton::Hover
       </property>
       <property name="text">
        <string>Admin</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="settings_button">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>30</y>
-        <width>151</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton
-{
-	border: none;
-	color:rgb(255, 255, 255);
-	background-color: rgb(115, 105, 163);
-	font: 24pt &quot;Sans Serif Collection&quot;;
-	border-radius: 10px;
-}
-
-QPushButton::Hover
-{
-	background-color:rgb(148, 135, 211);
-}</string>
-      </property>
-      <property name="text">
-       <string>Settings</string>
       </property>
      </widget>
      <widget class="QPushButton" name="user_button">
@@ -123,9 +95,9 @@ QPushButton::Hover
      <widget class="QLabel" name="title">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>110</x>
         <y>130</y>
-        <width>691</width>
+        <width>621</width>
         <height>131</height>
        </rect>
       </property>
@@ -138,6 +110,46 @@ QPushButton::Hover
       </property>
       <property name="text">
        <string>IZCC Casino Bank</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="insolvency_risk">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>401</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel
+{
+	color: rgb(255, 255, 255);
+	font: 600 20pt &quot;Cascadia Code&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>Equity: </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="liabilities">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>401</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel
+{
+	color: rgb(255, 255, 255);
+	font: 600 20pt &quot;Cascadia Code&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>Liabilities:</string>
       </property>
      </widget>
     </widget>
@@ -161,6 +173,9 @@ QPushButton::Hover
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Type  acc  name</string>
       </property>
      </widget>
      <widget class="QPushButton" name="search_button">
@@ -1137,7 +1152,7 @@ QPushButton::Hover
         <string>Proceed</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="proceed_reset_button_2">
+      <widget class="QPushButton" name="do_not_reset_button">
        <property name="geometry">
         <rect>
          <x>70</x>
